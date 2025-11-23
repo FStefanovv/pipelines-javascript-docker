@@ -4,17 +4,23 @@ trigger:
 resources:
 - repo: self
 
+variables:
+  - group: az204-vars
+  - name: dockerRegistryServiceConnection
+    value: '133fdf8e-d4de-4395-bf1a-d4fa24525223'
+  - name: imageRepository
+    value: 'fstefanovvpipelinesjavascriptdocker'
+  - name: containerRegistry
+    value: 'fstefanovacrlearning.azurecr.io'
+  - name: dockerfilePath
+    value: '**/Dockerfile'
+  - name: tag
+    value: '$(Build.BuildId)'
+  - name: imagePullSecret
+    value: 'fstefanovacrlearningf191-auth'
+
 pool:
   name: "$(MSFT_AGENT_POOL)"
-
-variables:
-
-  dockerRegistryServiceConnection: '133fdf8e-d4de-4395-bf1a-d4fa24525223'
-  imageRepository: 'fstefanovvpipelinesjavascriptdocker'
-  containerRegistry: 'fstefanovacrlearning.azurecr.io'
-  dockerfilePath: '**/Dockerfile'
-  tag: '$(Build.BuildId)'
-  imagePullSecret: 'fstefanovacrlearningf191-auth'
 
 stages:
 - stage: Build
