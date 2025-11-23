@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: fstefanovvpipelinesjavascriptdocker 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fstefanovvpipelinesjavascriptdocker
+  template:
+    metadata:
+      labels:
+        app: fstefanovvpipelinesjavascriptdocker 
+    spec:
+      containers:
+        - name: fstefanovvpipelinesjavascriptdocker 
+          image: fstefanovacrlearning.azurecr.io/fstefanovvpipelinesjavascriptdocker
+          ports:
+          - containerPort: 8080
